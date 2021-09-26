@@ -1,0 +1,23 @@
+.mat-elevation-z8 {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+}
+.add-store {
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: end;
+}
+
+.table-div {
+  width: 100%;
+}
+
+.inner-table-div {
+  margin: 0 20px;
+}
+
+.own-button {
+  background-color: unset !important;
+  border: unset !important;
+}

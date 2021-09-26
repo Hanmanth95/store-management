@@ -1,0 +1,57 @@
+<h2>{{ displayText }}</h2>
+<div mat-dialog-content>
+  <form #r="ngForm" name="storeForm">
+    <div class="example-container">
+      <mat-form-field>
+        <input
+          matInput
+          name="name"
+          placeholder="Store Name"
+          type="text"
+          required
+          [(ngModel)]="copyData.name"
+          #name="ngModel"
+        />
+        <mat-error *ngIf="name.invalid">Enter Store Name</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          name="location"
+          type="text"
+          placeholder="Store Location"
+          required
+          [(ngModel)]="copyData.location"
+          #location="ngModel"
+        />
+        <mat-error *ngIf="location.invalid">Enter Store Location</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          name="mobile"
+          type="number"
+          maxlength="10"
+          placeholder="Store Phone number"
+          [(ngModel)]="copyData.mobile"
+          #mobile="ngModel"
+          required
+        />
+        <mat-error *ngIf="mobile.invalid">Enter Password</mat-error>
+      </mat-form-field>
+      <div class="example-button-row">
+        <button mat-button (click)="onNoClick()">Cancel</button>
+        <button
+          [disabled]="!r.valid"
+          mat-raised-button
+          color="primary"
+          [mat-dialog-close]="copyData"
+          cdkFocusInitial
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

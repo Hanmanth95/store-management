@@ -1,0 +1,56 @@
+<h2>Edit User</h2>
+<div mat-dialog-content>
+  <form #r="ngForm" name="registerForm">
+    <div class="example-container">
+      <mat-form-field>
+        <input
+          matInput
+          name="name"
+          placeholder="Name"
+          type="text"
+          required
+          [(ngModel)]="copyData.name"
+          #name="ngModel"
+        />
+        <mat-error *ngIf="name.invalid">Enter Name</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          name="email"
+          type="email"
+          placeholder="Email"
+          required
+          [(ngModel)]="copyData.email"
+          #email="ngModel"
+        />
+        <mat-error *ngIf="email.invalid">Enter Email</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          name="password"
+          type="password"
+          placeholder="Password"
+          [(ngModel)]="copyData.password"
+          #password="ngModel"
+          required
+        />
+        <mat-error *ngIf="password.invalid">Enter Password</mat-error>
+      </mat-form-field>
+      <div class="example-button-row">
+        <button mat-button (click)="onNoClick()">Cancel</button>
+        <button
+          [disabled]="!r.valid"
+          mat-raised-button
+          color="primary"
+          [mat-dialog-close]="copyData"
+          cdkFocusInitial
+        >
+          Ok
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

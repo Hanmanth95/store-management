@@ -1,0 +1,24 @@
+<div class="header-div">
+  <div style="float: left">
+    <a href="/">
+      <img
+        src="../../assets/Zenwork-logo.svg"
+        alt="Zenwork-logo"
+        style="width: 75%; margin: 10px"
+    /></a>
+  </div>
+
+  <div class="right-float" *ngIf="showTabs">
+    <a
+      *ngIf="showUsers"
+      class="achor"
+      routerLinkActive="active-link"
+      routerLink="/users/list"
+      >Link</a
+    >
+    <a class="achor" routerLinkActive="active-link" routerLink="/store/list"
+      >Store</a
+    >
+    <a class="achor" href="#" (click)="logout()">Logout</a>
+  </div>
+</div>

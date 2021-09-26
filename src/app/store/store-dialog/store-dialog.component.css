@@ -1,0 +1,23 @@
+.example-stretched-tabs {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 28px;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+.example-button-row {
+  width: 100%;
+  text-align: end;
+}
+.own-button {
+  background-color: unset !important;
+  border: unset !important;
+}

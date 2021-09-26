@@ -1,0 +1,75 @@
+<div class="store">
+  <div *ngIf="outlet.isActivated == false">
+    <div class="table-div">
+      <div class="add-store">
+        <button mat-raised-button color="accent" (click)="openDialog()">
+          Add New Store
+        </button>
+      </div>
+      <table
+        *ngIf="dataSource.length > 0"
+        mat-table
+        [dataSource]="dataSource"
+        class="mat-elevation-z8"
+      >
+        <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="location">
+          <th mat-header-cell *matHeaderCellDef>Location</th>
+          <td mat-cell *matCellDef="let element">{{ element.location }}</td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="phone">
+          <th mat-header-cell *matHeaderCellDef>Phone</th>
+          <td mat-cell *matCellDef="let element">{{ element.mobile }}</td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell *matHeaderCellDef>Edit</th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              (click)="openEditDialog(element)"
+              type="button"
+              class="own-button cursor-pointer"
+            >
+              <mat-icon aria-hidden="false" aria-label="Example edit icon"
+                >edit</mat-icon
+              >
+            </button>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="products">
+          <th mat-header-cell *matHeaderCellDef>Products</th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              routerLink="products"
+              type="button"
+              class="own-button cursor-pointer"
+            >
+              <mat-icon aria-hidden="false" aria-label="View icon"
+                >view_comfy</mat-icon
+              >
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+      <p *ngIf="dataSource.length == 0">Add Store to see here.</p>
+    </div>
+  </div>
+
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>
